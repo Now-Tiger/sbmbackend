@@ -87,8 +87,8 @@ mv nginx/nginx.temp.conf nginx/nginx.conf
 
 # Start services
 print_status "Building and starting containers..."
-docker-compose -f docker-compose.prod.yml down || true
-docker-compose -f docker-compose.prod.yml up --build -d
+sudo docker-compose -f docker-compose.prod.yml down || true
+sudo docker-compose -f docker-compose.prod.yml up --build -d
 
 # Wait for services
 print_status "Waiting for services to start..."
@@ -110,7 +110,7 @@ done
 print_step "2. Obtaining SSL certificate..."
 
 print_status "Requesting SSL certificate from Let's Encrypt..."
-docker-compose -f docker-compose.prod.yml run --rm --no-deps certbot \
+sudo docker-compose -f docker-compose.prod.yml run --rm --no-deps certbot \
   certbot certonly --webroot \
   -w /var/www/certbot \
   --email $EMAIL \
@@ -134,7 +134,7 @@ mv nginx/nginx.conf.backup nginx/nginx.conf
 
 # Reload nginx with SSL configuration
 print_status "Reloading nginx with SSL configuration..."
-docker-compose -f docker-compose.prod.yml exec nginx nginx -s reload
+sudo docker-compose -f docker-compose.prod.yml exec nginx nginx -s reload
 
 # Step 4: Test HTTPS
 print_step "4. Testing HTTPS configuration..."
