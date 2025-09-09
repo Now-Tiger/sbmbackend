@@ -15,9 +15,9 @@ SECRET_KEY = os.environ.get('SECRET_KEY', 'foo')
 DEBUG = True
 
 if DEBUG:
-    ALLOWED_HOSTS = ['localhost', '127.0.0.1', '0.0.0.0', '52.91.1.148']
+    ALLOWED_HOSTS = ['localhost', 'nowtiger.dpdns.org', '127.0.0.1', '0.0.0.0', '52.91.1.148']
 else:
-    ALLOWED_HOSTS = ['52.91.1.148']
+    ALLOWED_HOSTS = ['52.91.1.148', 'nowtiger.dpdns.org']
 
 # Application definition
 
@@ -47,6 +47,13 @@ MIDDLEWARE = [
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:3000',
     'http://127.0.0.1:3000',
+    'https://nowtiger.dpdns.org',
+    'https://socialboostermedia-pohqv5ue4-now-tigers-projects.vercel.app',
+]
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://nowtiger.dpdns.org',
+    'https://socialboostermedia-pohqv5ue4-now-tigers-projects.vercel.app',
 ]
 
 ROOT_URLCONF = 'sbm_backend.urls'
