@@ -13,4 +13,9 @@ fi
 uv run manage.py makemigrations
 uv run python manage.py migrate
 
-exec "$@"
+# Collect static files (important for production)
+uv run python manage.py collectstatic --noinput
+
+# Start Gunicorn
+echo "Starting Gunicorn..."
+exec uv run gunicorn sbm_backend.wsgi:application -c gunicorn.conf.py

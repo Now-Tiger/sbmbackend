@@ -13,6 +13,10 @@ django-cors-headers==4.7.0
     # via sbm-backend (pyproject.toml)
 djangorestframework==3.16.1
     # via sbm-backend (pyproject.toml)
+gunicorn==23.0.0
+    # via sbm-backend (pyproject.toml)
+packaging==25.0
+    # via gunicorn
 psycopg2-binary==2.9.10
     # via sbm-backend (pyproject.toml)
 sqlparse==0.5.3

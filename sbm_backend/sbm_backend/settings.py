@@ -12,12 +12,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('SECRET_KEY', 'foo')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# DEBUG = os.environ.get('DEBUG', '0')
+# DEBUG = bool(int(DEBUG))
+DEBUG = False
 
 if DEBUG:
-    ALLOWED_HOSTS = ['localhost', 'nowtiger.dpdns.org', '127.0.0.1', '0.0.0.0', '52.91.1.148']
+    ALLOWED_HOSTS = ['nowtiger.dpdns.org', '52.91.1.148', '0.0.0.0', '127.0.0.1', 'localhost',]
 else:
-    ALLOWED_HOSTS = ['52.91.1.148', 'nowtiger.dpdns.org']
+    ALLOWED_HOSTS = ['nowtiger.dpdns.org', '52.91.1.148', '0.0.0.0', 'localhost',]
 
 # Application definition
 
@@ -124,6 +126,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
 STATIC_URL = 'static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field

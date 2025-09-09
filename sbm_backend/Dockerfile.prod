@@ -1,0 +1,60 @@
+# Multi-stage build for production
+FROM python:3.12-slim as builder
+
+WORKDIR /usr/src/sbm_backend
+
+ENV PYTHONDONTWRITEBYTECODE 1
+ENV PYTHONUNBUFFERED 1
+
+# Install system dependencies
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends gcc \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
+
+# Install Python dependencies
+RUN pip install --upgrade pip
+RUN pip install uv
+
+COPY ./pyproject.toml .
+RUN uv sync --frozen
+
+# Production stage
+FROM python:3.12-slim
+
+# Create non-root user
+RUN groupadd -r django && useradd --no-log-init -r -g django django
+
+WORKDIR /usr/src/sbm_backend
+
+ENV PYTHONDONTWRITEBYTECODE 1
+ENV PYTHONUNBUFFERED 1
+
+# Install runtime dependencies
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends netcat-openbsd curl \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
+
+# Copy Python dependencies from builder stage
+RUN pip install --upgrade pip
+RUN pip install uv
+COPY --from=builder /usr/src/sbm_backend/.venv /usr/src/sbm_backend/.venv
+
+# Copy project files
+COPY ./gunicorn.conf.py .
+COPY ./entrypoint.prod.sh .
+RUN chmod +x /usr/src/sbm_backend/entrypoint.prod.sh
+
+COPY . .
+
+# Create static files directory
+RUN mkdir -p /usr/src/sbm_backend/staticfiles
+RUN mkdir -p /usr/src/sbm_backend/media
+
+# Change ownership to django user
+RUN chown -R django:django /usr/src/sbm_backend
+
+USER django
+
+ENTRYPOINT ["/usr/src/sbm_backend/entrypoint.prod.sh"]
