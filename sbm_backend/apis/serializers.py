@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import UserAnalytics, CryptoMarketData
+from .models import UserAnalytics
 
 
 class UserAnalyticsSerializer(serializers.ModelSerializer):

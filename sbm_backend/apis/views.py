@@ -1,6 +1,8 @@
 from typing import ClassVar
-from django.db.models import QuerySet
+
 import psycopg2
+
+from django.db.models import QuerySet
 from django.conf import settings
 from rest_framework import status
 from rest_framework import generics
