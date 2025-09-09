@@ -155,6 +155,7 @@ INSERT INTO user_analytics (date, desktop, mobile) VALUES
 ('2024-06-29', 103, 160),
 ('2024-06-30', 446, 400);
 
+
 -- Drop table if it exists
 -- DROP TABLE IF EXISTS crypto_market_data;
 -- 
