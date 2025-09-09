@@ -15,9 +15,9 @@ SECRET_KEY = os.environ.get('SECRET_KEY', 'foo')
 DEBUG = True
 
 if DEBUG:
-    ALLOWED_HOSTS = ['localhost', '127.0.0.1', '64.226.81.32', '0.0.0.0', '52.91.1.148']
+    ALLOWED_HOSTS = ['localhost', '127.0.0.1', '0.0.0.0', '52.91.1.148']
 else:
-    ALLOWED_HOSTS = ['64.226.81.32', '52.91.1.148']
+    ALLOWED_HOSTS = ['52.91.1.148']
 
 # Application definition
 
