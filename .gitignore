@@ -41,5 +41,7 @@ imp.txt
 # Local deployment files - do not commit
 .env.prod.local
 docker-compose.prod.local.yml
+docker-compose.temp.yml
 nginx-local/
+nginx-temp/
 certbot/
