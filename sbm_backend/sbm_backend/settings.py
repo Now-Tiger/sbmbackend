@@ -16,10 +16,12 @@ SECRET_KEY = os.environ.get('SECRET_KEY', 'foo')
 # DEBUG = bool(int(DEBUG))
 DEBUG = False
 
-if DEBUG:
-    ALLOWED_HOSTS = ['nowtiger.dpdns.org', '52.91.1.148', '0.0.0.0', '127.0.0.1', 'localhost',]
-else:
-    ALLOWED_HOSTS = ['nowtiger.dpdns.org', '52.91.1.148', '0.0.0.0', 'localhost',]
+# if DEBUG:
+#     ALLOWED_HOSTS = ['nowtiger.dpdns.org', 'www.nowtiger.dpdns.org', '44.204.3.131', '0.0.0.0', '127.0.0.1', 'localhost',]
+# else:
+#     ALLOWED_HOSTS = ['nowtiger.dpdns.org', 'www.nowtiger.dpdns.org', '44.204.3.131', '0.0.0.0', '127.0.0.1', 'localhost',]
+
+ALLOWED_HOSTS = ['nowtiger.dpdns.org']
 
 # Application definition
 
@@ -50,13 +52,16 @@ CORS_ALLOWED_ORIGINS = [
     'http://localhost:3000',
     'http://127.0.0.1:3000',
     'https://nowtiger.dpdns.org',
-    'https://socialboostermedia-pohqv5ue4-now-tigers-projects.vercel.app',
+    'https://socialboostermedia.vercel.app/',
 ]
 
-CSRF_TRUSTED_ORIGINS = [
-    'https://nowtiger.dpdns.org',
-    'https://socialboostermedia-pohqv5ue4-now-tigers-projects.vercel.app',
-]
+# CSRF_TRUSTED_ORIGINS = [
+#     'https://nowtiger.dpdns.org',
+#     'https://www.nowtiger.dpdns.org',
+#     'https://socialboostermedia.vercel.app/',
+# ]
+
+CSRF_TRUSTED_ORIGINS = ["https://nowtiger.dpdns.org"]
 
 ROOT_URLCONF = 'sbm_backend.urls'
 
