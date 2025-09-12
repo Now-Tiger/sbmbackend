@@ -21,7 +21,7 @@ DEBUG = False
 # else:
 #     ALLOWED_HOSTS = ['nowtiger.dpdns.org', 'www.nowtiger.dpdns.org', '44.204.3.131', '0.0.0.0', '127.0.0.1', 'localhost',]
 
-ALLOWED_HOSTS = ['nowtiger.dpdns.org']
+ALLOWED_HOSTS = ['nowtiger.dpdns.org', '35.154.114.26',]
 
 # Application definition
 
