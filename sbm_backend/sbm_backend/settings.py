@@ -52,6 +52,7 @@ CORS_ALLOWED_ORIGINS = [
     'http://localhost:3000',
     'http://127.0.0.1:3000',
     'https://nowtiger.dpdns.org',
+    'https://www.nowtiger.dpdns.org',
     "http://35.154.114.26",                    # if you want to allow IP (http)
     "https://35.154.114.26",                   # if using https on IP
     'https://socialboostermedia.vercel.app',
@@ -63,7 +64,7 @@ CORS_ALLOWED_ORIGINS = [
 #     'https://socialboostermedia.vercel.app/',
 # ]
 
-CSRF_TRUSTED_ORIGINS = ["https://nowtiger.dpdns.org"]
+CSRF_TRUSTED_ORIGINS = ["https://nowtiger.dpdns.org", 'https://www.nowtiger.dpdns.org']
 
 ROOT_URLCONF = 'sbm_backend.urls'
 
