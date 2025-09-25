@@ -12,16 +12,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('SECRET_KEY', 'foo')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = os.environ.get('DEBUG', '0')
-# DEBUG = bool(int(DEBUG))
 DEBUG = False
 
-# if DEBUG:
-#     ALLOWED_HOSTS = ['nowtiger.dpdns.org', 'www.nowtiger.dpdns.org', '44.204.3.131', '0.0.0.0', '127.0.0.1', 'localhost',]
-# else:
-#     ALLOWED_HOSTS = ['nowtiger.dpdns.org', 'www.nowtiger.dpdns.org', '44.204.3.131', '0.0.0.0', '127.0.0.1', 'localhost',]
-
-ALLOWED_HOSTS = ['nowtiger.dpdns.org', 'www.nowtiger.dpdns.org', '35.154.114.26',]
+ALLOWED_HOSTS = ['nowtiger.dpdns.org', 'www.nowtiger.dpdns.org', '65.2.181.157',]
 
 # Application definition
 

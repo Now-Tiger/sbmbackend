@@ -11,10 +11,10 @@ if [ "$DATABASE" = "postgres" ]; then
 fi
 
 uv run manage.py makemigrations
-uv run python manage.py migrate
+uv run manage.py migrate
 
 # Collect static files (important for production)
-uv run python manage.py collectstatic --noinput
+uv run manage.py collectstatic --noinput
 
 # Start Gunicorn
 echo "Starting Gunicorn..."
